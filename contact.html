@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Contact Us Form | CodingLab</title>
+  <link rel="stylesheet" href="contactcss.css">
+  <!-- Fontawesome CDN Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+     background-image: url('https://media.istockphoto.com/id/1286466509/photo/portrait-of-a-red-border-collie-dog-looking-around-the-corner-of-a-grey-empty-board-for-copy.jpg?s=612x612&w=0&k=20&c=36RtzxQQu8yG5ugUwmuJcgIyvIC9kGmbWkyvfv1c2MI=');
+      background-repeat: no-repeat;
+     background-size: cover;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      background-color: lightsalmon;
+     
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      display: flex;
+    }
+
+    .left-side {
+      flex: 1;
+      padding-right: 20px;
+    }
+
+    .right-side {
+  background-color: lightsalmon;
+      flex: 1;
+      padding-left: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+padding-right: 10px;
+    }
+   
+
+    .details {
+      margin-bottom: 20px;
+    }
+
+    .details .topic {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .details .text-one {
+      margin-top: 5px;
+    }
+
+    .details .text-two {
+      color: #666;
+    }
+
+    .right-side .topic-text,
+    form p,
+    .input-box input[type="text"],
+    .input-box input[type="email"] {
+      text-align: justify;
+    }
+
+    .input-box {
+      margin-bottom: 20px;
+    }
+
+    .input-box input[type="text"],
+    .input-box input[type="email"] {
+      width: calc(100% - 26px); /* Adjusted width to accommodate border */
+      padding: 12px;
+      border: 1px solid #000; /* Black border */
+      border-radius: 5px;
+      background-color: #f8f9fa;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+
+    .input-box input[type="text"]:focus,
+    .input-box input[type="email"]:focus {
+      border-color: #4CAF50;
+    }
+
+    .button input[type="button"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    .button input[type="button"]:hover {
+      background-color: #45a049;
+
+
+    }
+
+    .error-message {
+      color: #ff0000;
+      font-size: 14px;
+      margin-top: 5px;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="left-side">
+        <div class="address details">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="topic">Address</div>
+          <div class="text-two">Mysuru</div>
+        </div>
+        <div class="phone details">
+          <i class="fas fa-phone-alt"></i>
+          <div class="topic"><b>Phone</b></div>
+          <div class="text-one"> <a href="tel:+918618063815">+918618063815</a></div>
+          <div class="text-two"><b>+0096 3434 5678</b></div>
+        </div>
+        <div class="email details">
+          <i class="fas fa-envelope"></i>
+          <div class="topic">Email</div>
+          <div class="text-one"><a href=mailto:PetParent@example.com>PetParent@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="topic-text"><h1><b>Send us a message</b></h1></div>
+        <p>"Have a question, suggestion, or just want to share a tail-wagging moment? We're all ears!<br>Drop us a line below and let's start a conversation.<br>Your feedback fuels our passion for creating a purr-fect experience for you and your beloved pets.<br>We can't wait to hear from you!"</p>
+        <form id="contactForm">
+          <div class="input-box">
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <div class="error-message" id="nameError"></div>
+          </div>
+          <div class="input-box">
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <div class="error-message" id="emailError"></div>
+          </div>
+          <div class="input-box">
+            <input type="text" id="message" name="message" placeholder="Write your Message" required>
+            <div class="error-message" id="messageError"></div>
+          </div>
+          <div class="button">
+          <input type="button" value="Send Now" onclick="validateForm()">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function validateForm() {
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var message = document.getElementById('message').value;
+
+      var nameError = document.getElementById('nameError');
+      var emailError = document.getElementById('emailError');
+      var messageError = document.getElementById('messageError');
+
+      nameError.textContent = '';
+      emailError.textContent = '';
+      messageError.textContent = '';
+
+      var isValid = true;
+
+      if (name.trim() === '') {
+        nameError.textContent = 'Name is required';
+        isValid = false;
+      }
+
+      if (email.trim() === '') {
+        emailError.textContent = 'Email is required';
+        isValid = false;
+      } else if (!isValidEmail(email)) {
+        emailError.textContent = 'Invalid email format';
+        isValid = false;
+      }
+
+      if (message.trim() === '') {
+        messageError.textContent = 'Message is required';
+        isValid = false;
+      }
+    }
+
+    function isValidEmail(email) {
+      var re = /\S+@\S+\.\S+/;
+      return re.test(email);
+    }
+  </script>
+</body>
+</html>

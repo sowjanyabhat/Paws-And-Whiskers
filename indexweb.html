@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetParent</title>
+</head>
+<style type="text/css">
+    *{
+        margin:0;
+        padding:0;
+    }
+    .container-fluid{
+        width:100%;
+        height:80px;/*80px*/
+        /*background:linear-gradient(to left,rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%,url(background.jpeg));*/
+        background-size:cover;
+        background-repeat:no-repeat;
+
+    }
+    .container{
+        height:80px;/*80px*/
+        margin:auto;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:0px 25px;
+        background-color:peachpuff;
+    }
+    .container h2{
+        font-family:Garamond;
+        font-size:40px;
+        color:#17202A;
+        cursor:pointer;
+    }    
+    .container ul{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+    .container ul li{/*li*/
+        /*font-family:Garamond;
+        font-size: medium;
+        color:#17202A;
+        list-style:none;
+        margin-right:50px;
+        font-weight:bold;
+        cursor:pointer;
+        transition:0.5s;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        */
+        width:100px;
+        height:30px;
+        border-radius:10px;
+        font-size:18px;
+        border:2px solid #fff;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background-color:lightsalmon;
+        color:#fff;
+        transition:.5s;
+        margin-top:10px;
+
+    }
+    .container ul .btn:hover{
+        background-color: pink;
+        color:white;
+    }
+    .container ul li:first-child{
+        color:#17202A;
+    }
+    .container ul li:hover{
+        color:goldenrod;
+        border-radius: 2px;
+        border-style: dotted;
+        transition: .2s;
+    }
+    .container .btn{
+        width:200px;
+        height:50px;
+        border-radius:10px;
+        font-size:18px;
+        border:none;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background-color:bisque;
+        color:#fff;
+        transition:.5s;
+    }
+    .container .btn:hover{
+        background-color:#FDEDEC;
+        color: pink;
+    }
+    .content{
+        width:1200px;
+        height:100vh;/*vh*/
+        background-image: url(image1.jpeg);
+        
+        margin:auto;
+        background-repeat: no-repeat;
+        background-size:cover;
+        
+    }
+    .content h1{
+        font-family:Garmond;
+        font-weight:bold;
+        color:white;
+        font-size:50px;
+        padding-top:100px;
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: black;
+    }
+    .content p{
+        font-family:Garmond;
+        font-weight:bold;
+        font-size:20px;
+        line-height:30px;
+        padding-top:30px;
+        color:black;
+        -webkit-text-stroke-width: 0.3px;
+        -webkit-text-stroke-color: black;
+        
+
+    }
+    .content .btn{
+        width:200px;
+        height:50px;
+        border-radius:10px;
+        font-size:18px;
+        border:2px solid #fff;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background-color:#17202A;
+        color:#fff;
+        transition:.5s;
+        margin-top:20px;
+    }
+    .content .btn:hover{
+        background-color:#FDEDEC;
+        color:#17202A;
+    }
+    mark{
+        background-color:lightsalmon;
+    }
+
+
+</style>
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <h2>Paws & Whiskers</h2>
+            <ul role="toolbar">
+              <!--- <li><button style="background-color: lightsalmon; border-color: transparent;">ABOUT</button></li>-->
+                <li><a href="about.html"><button style="background-color: lightsalmon;border-color: transparent;">ABOUT</button></a></li>
+                <li><a href="servicesj.html"><button style="background-color: lightsalmon;border-color: transparent;">SERVICES</button></a></li>
+                <li><a href ="blog.html"><button style="background-color: lightsalmon; border-color: transparent;">BLOG</button></a></li>
+                <li><a href="contact.html"><button style="background-color: lightsalmon; border-color: transparent;">CONTACT</button></a></li>
+            </ul>
+          
+        </div>
+        <div class="content" style="background-image:url('https://images5.alphacoders.com/134/1341846.png')">
+            <h1>Grooming & Pet<br>Care</h1>
+            <p><mark>"Welcome to PetParent, where tails wag and purrs resonate! 
+                <br>Discover a world of pet-friendly wonders, from premium
+                <br> nutrition to playful accessories, 
+                <br>tailored to pamper your furry companions.
+                <br> Join our community of pet lovers today!"</mark></p>
+           
+            <p><mark>Location:Mysuru</mark></p>
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

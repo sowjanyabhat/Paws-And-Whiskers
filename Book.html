@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Session</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://t4.ftcdn.net/jpg/06/04/63/87/360_F_604638710_tMxISnsB8L6ussZVnWaFLQTOJNvOrUM8.jpg');
+          background-repeat: no-repeat;
+          background-size: cover;
+            margin: 20;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            background-color: lightskyblue;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            margin-top: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: #ff0000;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .confirmation {
+            text-align: center;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .confirmation p {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book a Session</h1>
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+                <div class="error-message" id="nameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-message" id="emailError"></div>
+            </div>
+            <div class="form-group">
+                <label for="pet">Pet's Name:</label>
+                <input type="text" id="pet" name="pet" required>
+                <div class="error-message" id="petError"></div>
+            </div>
+            <div class="form-group">
+                <label for="service">Service:</label>
+                <select id="service" name="service" required>
+                    <option value="">Select a Service</option>
+                    <option value="Puppy Training">Puppy Training</option>
+                    <option value="Behavioral Training">Behavioral Training</option>
+                    <option value="Pet Grooming">Pet Grooming</option>
+                </select>
+                <div class="error-message" id="serviceError"></div>
+            </div>
+            <div class="form-group">
+                <label for="date">Preferred Date:</label>
+                <input type="date" id="date" name="date" required>
+                <div class="error-message" id="dateError"></div>
+            </div>
+            <div class="form-group">
+                <label for="message">Message (Optional):</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+        <div class="confirmation" id="confirmationMessage">
+            <p>Thank you for booking a session with us! We will get back to you shortly.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var pet = document.getElementById('pet').value;
+            var service = document.getElementById('service').value;
+            var date = document.getElementById('date').value;
+            
+            var nameError = document.getElementById('nameError');
+            var emailError = document.getElementById('emailError');
+            var petError = document.getElementById('petError');
+            var serviceError = document.getElementById('serviceError');
+            var dateError = document.getElementById('dateError');
+            
+            nameError.textContent = '';
+            emailError.textContent = '';
+            petError.textContent = '';
+            serviceError.textContent = '';
+            dateError.textContent = '';
+            
+            if (!name || !email || !pet || !service || !date) {
+                alert('Fill All the Fields!');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                emailError.textContent = 'Invalid email address';
+                return;
+            }
+            
+            document.getElementById('bookingForm').style.display = 'none';
+            document.getElementById('confirmationMessage').style.display = 'block';
+        });
+        
+        function validateEmail(email) {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>
